@@ -848,10 +848,11 @@
                     </div>
 
                     <div>
-                        <a href="#" class="button button--flex">
+                        <a class="button button--flex" id="send-message-button">
                             Send message
                             <i class="uil uil-message button__icon"></i>
-                        </a>
+                          </a>
+                          
                     </div>
                 </form>
             </div>
@@ -908,6 +909,28 @@
 
     <!--==================== MAIN JS ====================-->
     <script src="./packages/js/main.js"></script>
+    <script>
+        // Get a reference to the send message button
+        const sendMessageButton = document.getElementById('send-message-button');
+      
+        // Add an event listener to the button to listen for clicks
+        sendMessageButton.addEventListener('click', () => {
+          // Make the API request here
+          console.log('meeeeeow');
+          fetch('http://localhost:3000/sendEmail3', {
+  method: 'POST',
+  body: JSON.stringify({
+    to: 'recipient@example.com',
+    subject: 'Hello',
+    body: 'Hello, world!'
+  }),
+  headers: {
+    'Content-Type': 'application/json'
+  }
+});
+        });
+      </script>
+      
 </body>
 
 </html>
